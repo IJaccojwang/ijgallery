@@ -106,11 +106,11 @@ class Image(models.Model):
         return images
 
     @classmethod
-    def filter_by_category(cls, category):
+    def filter_by_category(cls, cat):
         '''
         Method to filter images according to category
         '''
-        images = cls.objects.filter(categories__name=category)
+        images = cls.objects.filter(categories__name=cat)
         return images
 
     @classmethod

@@ -1,7 +1,15 @@
 {%extends 'home.html'%}
 
 {% block content %}
-<h1>Category</h1>
+<div class="row">
+    {% if images %}
+      <h2>{{category}}</h2>
+    {% else %}
+      <h2> Found 0 images for the {{category}}</h2>
+    {% endif %}
+
+  </div>
+
 
 {{block.super}}
 {% endblock %}

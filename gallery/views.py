@@ -8,9 +8,11 @@ def home(request):
     images = Image.all_images()
     return render(request, 'home.html', {"images": images})
 
-def category(request, category):
+def category(request, cat):
+    category = cat
     images = Image.filter_by_category(category)
-    return render(request, 'category.html', {"images": images})
+    return render(request,'search.html',{"images":images, "category":category})
+
 
 def search_results(request):
     if 'image' in request.GET and request.GET["image"]:
