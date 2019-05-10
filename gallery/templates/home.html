@@ -1,0 +1,157 @@
+{%extends 'base.html'%}
+{% load static%}
+
+{% block styles %}
+{{block.super}}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+      <h1 class="heading">Gallery</h1>
+    </div>
+    <div class="row"> 
+        <div class="column">
+            {% for image in images|slice:":2" %}
+            <img src="{{image.image.url}}" style="width:100%" data-toggle="modal" data-target="#sampleImage{{image.id}}">
+              
+            <!-- Modal -->
+
+            <div class="modal fade" id="sampleImage{{image.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" 
+            aria-hidden="true">
+
+            <!-- Add .modal-dialog-centered to .modal-dialog to vertically center the modal -->
+              <div class="modal-dialog modal-dialog-centered" role="document">
+
+
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">{{image.name}}</h5>
+                    <h5 id="exampleModalLongTitle">{{image.description}}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                          <img src="{{image.image.url}}" style="width:100%">
+                  </div>
+                  <div class="modal-footer">
+                      <div class="form-group row">
+                        <input id="{{image.id}}-url"  class="form-control input-md responsive" type="text" value="{{ALLOWED_HOSTS}}{{image.image.url}}">
+                        <button class="btn btn-secondary" onclick="copyToClipboard('#{{image.id}}-url')">Copy</button>
+                      </div>
+                  </div>
+              </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+          <div class="column">
+              {% for image in images|slice:"2:4" %}
+              <img src="{{image.image.url}}" style="width:100%" data-toggle="modal" data-target="#sampleImage{{image.id}}">
+                
+              <!-- Modal -->
+  
+              <div class="modal fade" id="sampleImage{{image.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" 
+              aria-hidden="true">
+  
+              <!-- Add .modal-dialog-centered to .modal-dialog to vertically center the modal -->
+                <div class="modal-dialog modal-dialog-centered" role="document">
+  
+  
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLongTitle">{{image.name}}</h5>
+                      <h5 class="modal-title" id="exampleModalLongTitle">{{image.description}}</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                            <img src="{{image.image.url}}" style="width:100%">
+                    </div>
+                    <div class="modal-footer">
+                        <div class="form-group row">
+                          <input id="{{image.id}}-url"  class="form-control input-md responsive" type="text" value="{{ALLOWED_HOSTS}}{{image.image.url}}">
+                          <button class="btn btn-secondary" onclick="copyToClipboard('#{{image.id}}-url')">Copy</button>
+                        </div>
+                    </div>
+                </div>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+            <div class="column">
+                {% for image in images|slice:"4:6" %}
+                <img src="{{image.image.url}}" style="width:100%" data-toggle="modal" data-target="#sampleImage{{image.id}}">
+                  
+                <!-- Modal -->
+    
+                <div class="modal fade" id="sampleImage{{image.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" 
+                aria-hidden="true">
+    
+                <!-- Add .modal-dialog-centered to .modal-dialog to vertically center the modal -->
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+    
+    
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">{{image.name}}</h5>
+                        <h5 class="modal-title" id="exampleModalLongTitle">{{image.description}}</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                              <img src="{{image.image.url}}" style="width:100%">
+                      </div>
+                      <div class="modal-footer">
+                          <div class="form-group row">
+                            <input id="{{image.id}}-url"  class="form-control input-md responsive" type="text" value="{{ALLOWED_HOSTS}}{{image.image.url}}">
+                            <button class="btn btn-secondary" onclick="copyToClipboard('#{{image.id}}-url')">Copy</button>
+                          </div>
+                      </div>
+                  </div>
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+              <div class="column">
+                  {% for image in images|slice:"0:3" %}
+                  <img src="{{image.image.url}}" style="width:100%" data-toggle="modal" data-target="#sampleImage{{image.id}}">
+                    
+                  <!-- Modal -->
+      
+                  <div class="modal fade" id="sampleImage{{image.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" 
+                  aria-hidden="true">
+      
+                  <!-- Add .modal-dialog-centered to .modal-dialog to vertically center the modal -->
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+      
+      
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLongTitle">{{image.name}}</h5>
+                          <h5 class="modal-title" id="exampleModalLongTitle">{{image.description}}</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                                <img src="{{image.image.url}}" style="width:100%">
+                        </div>
+                        <div class="modal-footer">
+                            <div class="form-group row">
+                              <input id="{{image.id}}-url"  class="form-control input-md responsive" type="text" value="{{ALLOWED_HOSTS}}{{image.image.url}}">
+                              <button class="btn btn-secondary" onclick="copyToClipboard('#{{image.id}}-url')">Copy</button>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                  </div>
+                  {% endfor %}
+                </div>
+    </div>
+</div>
+{% endblock %}
