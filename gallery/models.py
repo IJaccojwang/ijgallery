@@ -107,7 +107,7 @@ class Image(models.Model):
         '''
         Method to filter images according to category
         '''
-        images = cls.objects.filter(category=category)
+        images = cls.objects.filter(categories=category)
         return images
 
     @classmethod
