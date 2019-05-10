@@ -23,6 +23,18 @@ class  ImageTestClass(TestCase):
 
     def test_instance(self):
         self.assertTrue(isinstance(self.image,Image))
+    
+    def test_save_image(self):
+        self.image.save_image()
+        images= Image.objects.all()
+        self.assertTrue(len(images) > 0)
+
+    def delete_image(self):
+        self.image.save_image()
+        self.image.save_image()
+        images= Image.objects.all()
+        self.assertTrue(len(images) > 0)
+        
 
 
     def tearDown(self):

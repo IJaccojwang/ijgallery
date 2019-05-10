@@ -11,7 +11,7 @@ def home(request):
 def category(request, cat):
     category = cat
     images = Image.filter_by_category(category)
-    return render(request,'search.html',{"images":images, "category":category})
+    return render(request,'category.html',{"images":images, "category":category})
 
 
 def search_results(request):
