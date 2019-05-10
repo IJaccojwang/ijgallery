@@ -20,11 +20,18 @@ class location(models.Model):
         self.save()
 
     @classmethod
-    def delete_location(cls,category):
+    def delete_location(cls,location):
         '''
         Method to delete locations
         '''
-        cls.objects.filter(category=category).delete()
+        cls.objects.filter(name=location).delete()
+    
+    @classmethod
+    def update_location(cls,location, new_location):
+        '''
+        Method to update locations
+        '''
+        cls.objects.filter(name=location).update(name=new_location)
 
 
 class category(models.Model):
@@ -47,7 +54,8 @@ class category(models.Model):
         '''
         Method to save new categories
         '''
-        cls.objects.filter(category=category).delete()
+        cls.objects.filter(name=category).delete()
+    
 
 
 class Image(models.Model):
