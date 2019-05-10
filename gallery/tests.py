@@ -68,7 +68,7 @@ class categoriesTestClass(TestCase):
         self.Fun.delete_category('Fun')
         categories = category.objects.all()
         self.assertTrue(len(categories)==0)
-
+        
 class locationTestClass(TestCase):
     def setUp(self):
         self.Nairobi = location(name='Nairobi')
