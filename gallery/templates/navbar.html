@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <!--Navbar-->
+<nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark" style="font-family: 'Acme', sans-serif;">
+
+    <!-- Navbar brand -->
+    <a class="navbar-brand" href="{% url 'home' %}">Picshare</a>
+  
+    <!-- Collapse button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+      aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="basicExampleNav">
+  
+      <!-- Links -->
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'home' %}">Home</a>
+        </li>
+        <!-- Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">Categories</a>
+          <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="/category/landscapes">Landscapes</a>
+            <a class="dropdown-item" href="/category/fun">Fun</a>
+            <a class="dropdown-item" href="/category/art">Art</a>
+          </div>
+        </li>
+  
+      </ul>
+      <!-- Links -->
+  
+      <form class="form-inline" role="search" action="{% url 'search_results' %}">
+
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search Image Name" name="image">
+          </div>
+          <div class="input-group-btn">
+              <button class="btn btn-dark" type="submit"><i class="fas fa-search"></i></button>
+            </div>
+  
+        </form>
+    </div>
+    <!-- Collapsible content -->
+  
+  </nav>
+  <!--/.Navbar-->
+</body>
+</html>
