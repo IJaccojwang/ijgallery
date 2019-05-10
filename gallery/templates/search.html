@@ -11,15 +11,6 @@
 
   </div>
 
-  <div class="row">
-
-  {% if images %}
-    {% for image in images %}
-      <div class="col-sm-6 col-md-3">
-          <h1>{{image.image.url}}</h1>
-      </div>
-    {% endfor %}
-  {% endif %}
-  </div>
+  {{block.super}}
 </div>
 {% endblock %}

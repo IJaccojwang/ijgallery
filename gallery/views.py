@@ -12,9 +12,6 @@ def category(request, category):
     images = Image.filter_by_category(category)
     return render(request, 'category.html', {"images": images})
 
-def location(request, location):
-    images = Image.filter_by_location(location)
-    return render(request, 'location.html', {"images": images})
 
 def search_results(request):
 
