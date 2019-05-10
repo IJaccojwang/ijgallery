@@ -1,5 +1,7 @@
 from django.db import models
 import datetime as dt 
+from django.db.models import Q
+
 
 
 class location(models.Model):
@@ -87,19 +89,20 @@ class Image(models.Model):
         return images
 
     @classmethod
-    def search_image(cls, name):
+    def search(cls,search_term):
         '''
-        Method to search for a specific image
+        Method to search for images according to category, name or location
         '''
-        images = cls.objects.filter(name__icontains=name)
+        images = cls.objects.filter(Q(categories__name=search_term) | Q(name__icontains=search_term) | Q(location__name=search_term))
+
         return images
-    
+
     @classmethod
     def filter_by_location(cls, location):
         '''
         Method to filter images according to location
         '''
-        images = cls.objects.filter(location=location)
+        images = cls.objects.filter(location__name=location)
         return images
 
     @classmethod
@@ -107,7 +110,7 @@ class Image(models.Model):
         '''
         Method to filter images according to category
         '''
-        images = cls.objects.filter(categories=category)
+        images = cls.objects.filter(categories__name=category)
         return images
 
     @classmethod

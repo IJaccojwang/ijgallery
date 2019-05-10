@@ -12,16 +12,14 @@ def category(request, category):
     images = Image.filter_by_category(category)
     return render(request, 'category.html', {"images": images})
 
-
 def search_results(request):
-
     if 'image' in request.GET and request.GET["image"]:
-        searched = request.GET.get("image")
-        images = Image.search_image(searched)
-        message = f"{searched}"
+        search_term = request.GET.get("image")
+        searched_images = Image.search(search_term)
+        message = f"{search_term}"
 
-        return render(request, 'search.html', {"message":message,"images": images})
+        return render(request,'search.html',{"message":message,"images":searched_images})
+
     else:
-        message = "You haven't searched for any term"
-        
-        return render(request, 'search.html',{"message":message})
+        message="You haven't searched for any term"
+        return render(request,'search.html',{"message":message})
