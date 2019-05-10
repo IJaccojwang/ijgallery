@@ -9,7 +9,7 @@ def home(request):
     return render(request, 'home.html', {"images": images})
 
 def category(request, category):
-    images = Image.all_images()
+    images = Image.filter_by_category(category)
     return render(request, 'category.html', {"images": images})
 
 def location(request, location):

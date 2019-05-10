@@ -101,6 +101,15 @@ class Image(models.Model):
         '''
         images = cls.objects.filter(location=location)
         return images
+
+    @classmethod
+    def filter_by_category(cls, category):
+        '''
+        Method to filter images according to category
+        '''
+        images = cls.objects.filter(category=category)
+        return images
+
     @classmethod
     def get_image_by_id(cls, id):
         '''
